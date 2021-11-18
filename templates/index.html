@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Fraud Transaction Detection</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    
+        <h1> Fraud Transaction detection </h1><br>
+        <div class="form"></div>
+            <form action="/predict" method="POST">
+                <b> Enter Transaction Amount <input type="number" name="ta" id="ta" placeholder="Transaction Amount" step="any" required min="0" max="1108.85"><br><br>
+                Was Transaction done during Weekend <select name="tdw" id="tdw" ><br>
+                    <option value="Y">Yes</option><br>
+                    <option value="N">No</option><br>
+                </select><br><br>
+                Was Transaction done during Night <select name="tdn" id="tdn" ><br>
+                    <option value="Y">Yes</option><br>
+                    <option value="N">No</option><br>
+                </select><br>
+                <br>
+                Number of transactions by the customer in the last 1 day(s) <input type="number" name="tx1dw" id="tx1dw" placeholder="Number of transactions by the customer in the last 1 day(s)" step="any" required min="1" max="14"><br><br>
+                
+                Customer Average spending amount in the last 1 day(s) <input type="number" name="amt1dw" id="amt1dw" placeholder="Customer Average spending amount in the last 1 day(s)" step="any" required min="0" max="1108.85"><br><br>
+
+                Number of transactions by the customer in the last 7 day(s) <input type="number" name="tx7dw" id="tx7dw" placeholder="Number of transactions by the customer in the last 7 day(s)" step="any" required min="1" max="48"><br><br>
+               
+                Customer Average spending amount in the last 7 day(s) <input type="number" name="amt7dw" id="amt7dw" placeholder="Customer Average spending amount in the last 7 day(s)" step="any" required min="0.28" max="413.58"><br><br>
+
+                Number of transactions by the customer in the last 30 day(s) <input type="number" name="tx30dw" id="tx30dw" placeholder="Number of transactions by the customer in the last 30 day(s)" step="any" required min="1" max="155"><br><br>
+               
+                Customer Average spending amount in the last 30 day(s) <input type="number" name="amt30dw" id="amt30dw" placeholder="Customer Average spending amount in the last 30 day(s)" step="any" required min="0.39" max="229.319"><br><br>
+
+                Number of transactions on the terminal in the last 1 day(s) <input type="number" name="tt1dw" id="tt1dw" placeholder="Number of transactions on the terminal in the last 1 day(s)" step="any" required min="0" max="8"><br><br>
+                
+                Average number of frauds on the terminal in the last 1 day(s) <input type="number" name="tr1dw" id="tr1dw" placeholder="Average number of frauds on the terminal in the last 1 day(s)" step="any" required min="0" max="1"><br><br>
+               
+                Number of transactions on the terminal in the last 7 day(s) <input type="number" name="tt7dw" id="tt7dw" placeholder="Number of transactions on the terminal in the last 7 day(s)" step="any" required min="0" max="25"><br><br>
+                
+                Average number of frauds on the terminal in the last 7 day(s) <input type="number" name="tr7dw" id="tr7dw" placeholder="Average number of frauds on the terminal in the last 7 day(s)" step="any" required min="0" max="1"><br><br>
+                
+                Number of transactions on the terminal in the last 30 day(s) <input type="number" name="tt30dw" id="tt30dw" placeholder="Number of transactions on the terminal in the last 30 day(s)" step="any" required min="4" max="76"><br><br>
+                
+                Average number of frauds on the terminal in the last 30 day(s) <input type="number" name="tr30dw" id="tr30dw" placeholder="Average number of frauds on the terminal in the last 30 day(s)" step="any" required min="0" max="1"><br><br></b>
+               
+                <input type="submit" value="Predict" >
+            </form>
+        </div> 
+    
+</div>
+{% endblock %}
+    
